@@ -1,0 +1,6 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.AAAA.org/schemas/spotTV" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DemoType" type="xs:string"/>
+  <xs:element name="Group" type="xs:string"/>
+  <xs:element name="AgeFrom" type="xs:byte"/>
+  <xs:element name="AgeTo" type="xs:byte"/>
+</xs:schema>
