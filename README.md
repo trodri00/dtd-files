@@ -1,1 +1,1 @@
-# dtd-files
+# xsd-files
