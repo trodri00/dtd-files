@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="AAAA-Message" type="T_AAAA-Message"/>
+	<xs:element name="AAAA-Values" type="T_AAAA-Values"/>
+	<xs:element name="Action" type="xs:string"/>
 	<xs:element name="Advertiser" type="T_Advertiser"/>
 	<xs:element name="AgeFrom" type="xs:byte"/>
 	<xs:element name="AgeTo" type="xs:byte"/>
 	<xs:element name="AvailLineWithDetailedPeriods" type="T_AvailLineWithDetailedPeriods"/>
 	<xs:element name="AvailList" type="T_AvailList"/>
 	<xs:element name="AvailName" type="xs:string"/>
+	<xs:element name="BusinessObject" type="xs:string"/>
 	<xs:element name="Buyer" type="T_Buyer"/>
 	<xs:element name="BuyerName" type="xs:string"/>
 	<xs:element name="Comment" type="T_Comment"/>
@@ -24,8 +28,8 @@
 	<xs:element name="Email" type="T_Email"/>
 	<xs:element name="EndTime" type="xs:string"/>
 	<xs:element name="Friday" type="xs:string"/>
-	<xs:element name="GenericMessage" type="T_GenericMessage"/>
 	<xs:element name="Group" type="xs:string"/>
+	<xs:element name="Media" type="xs:string"/>
 	<xs:element name="Monday" type="xs:string"/>
 	<xs:element name="Name" type="xs:string"/>
 	<xs:element name="OutletReference" type="T_OutletReference"/>
@@ -37,6 +41,8 @@
 	<xs:element name="Rate" type="xs:short"/>
 	<xs:element name="Salesperson" type="T_Salesperson"/>
 	<xs:element name="Saturday" type="xs:string"/>
+	<xs:element name="SchemaName" type="xs:string"/>
+	<xs:element name="SchemaVersion" type="xs:string"/>
 	<xs:element name="Seller" type="T_Seller"/>
 	<xs:element name="SpotLength" type="xs:time"/>
 	<xs:element name="SpotsPerWeek" type="xs:byte"/>
@@ -46,6 +52,7 @@
 	<xs:element name="TelevisionStation" type="T_TelevisionStation"/>
 	<xs:element name="Thursday" type="xs:string"/>
 	<xs:element name="Tuesday" type="xs:string"/>
+	<xs:element name="UniqueMessageID" type="xs:string"/>
 	<xs:element name="Wednesday" type="xs:string"/>
 	<xs:attribute name="DemoId" type="xs:string"/>
 	<xs:attribute name="buyingCompanyName" type="xs:string"/>
@@ -67,6 +74,22 @@
 	<xs:attribute name="uniqueIdentifier" type="xs:string"/>
 	<xs:attribute name="version" type="xs:byte"/>
 	<xs:attribute name="weekStartDay" type="xs:string"/>
+	<xs:complexType name="T_AAAA-Message">
+		<xs:sequence>
+			<xs:element ref="AAAA-Values"/>
+			<xs:element ref="Proposal"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_AAAA-Values">
+		<xs:sequence>
+			<xs:element ref="SchemaName"/>
+			<xs:element ref="SchemaVersion"/>
+			<xs:element ref="Media"/>
+			<xs:element ref="BusinessObject"/>
+			<xs:element ref="Action"/>
+			<xs:element ref="UniqueMessageID"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="T_Advertiser">
 		<xs:attribute ref="name" use="required"/>
 	</xs:complexType>
@@ -170,11 +193,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="T_GenericMessage">
-		<xs:sequence>
-			<xs:element ref="Proposal"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="T_OutletReference">
 		<xs:attribute ref="outletFromProposalRef"/>
 		<xs:attribute ref="outletForListId"/>
@@ -240,4 +258,5 @@
 		<xs:attribute ref="parentPlus" use="required"/>
 	</xs:complexType>
 </xs:schema>
+
 
