@@ -7,9 +7,11 @@
 	<xs:element name="Advertiser" type="T_Advertiser"/>
 	<xs:element name="AgeFrom" type="xs:byte"/>
 	<xs:element name="AgeTo" type="xs:byte"/>
+	<xs:element name="Agency" type="T_Agency"/>
 	<xs:element name="AvailLineWithDetailedPeriods" type="T_AvailLineWithDetailedPeriods"/>
 	<xs:element name="AvailList" type="T_AvailList"/>
 	<xs:element name="AvailName" type="xs:string"/>
+	<xs:element name="Budget" type="xs:string"/>
 	<xs:element name="BusinessObject" type="xs:string"/>
 	<xs:element name="Buyer" type="T_Buyer"/>
 	<xs:element name="BuyerName" type="xs:string"/>
@@ -27,8 +29,10 @@
 	<xs:element name="DetailedPeriod" type="T_DetailedPeriod"/>
 	<xs:element name="Email" type="T_Email"/>
 	<xs:element name="EndTime" type="xs:string"/>
+	<xs:element name="Flights" type="xs:string"/>
 	<xs:element name="Friday" type="xs:string"/>
 	<xs:element name="Group" type="xs:string"/>
+	<xs:element name="Market" type="xs:string"/>
 	<xs:element name="Media" type="xs:string"/>
 	<xs:element name="Monday" type="xs:string"/>
 	<xs:element name="Name" type="xs:string"/>
@@ -55,6 +59,7 @@
 	<xs:element name="UniqueMessageID" type="xs:string"/>
 	<xs:element name="Wednesday" type="xs:string"/>
 	<xs:attribute name="DemoId" type="xs:string"/>
+	<xs:attribute name="Name" type="xs:string"/>
 	<xs:attribute name="buyingCompanyName" type="xs:string"/>
 	<xs:attribute name="callLetters" type="xs:string"/>
 	<xs:attribute name="companyName" type="xs:string"/>
@@ -77,6 +82,7 @@
 	<xs:complexType name="T_AAAA-Message">
 		<xs:sequence>
 			<xs:element ref="AAAA-Values"/>
+			<xs:element ref="Agency"/>
 			<xs:element ref="Proposal"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -92,6 +98,14 @@
 	</xs:complexType>
 	<xs:complexType name="T_Advertiser">
 		<xs:attribute ref="name" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_Agency">
+		<xs:sequence>
+			<xs:element ref="Flights"/>
+			<xs:element ref="Market"/>
+			<xs:element ref="Budget"/>
+		</xs:sequence>
+		<xs:attribute ref="Name" use="required"/>
 	</xs:complexType>
 	<xs:complexType name="T_AvailLineWithDetailedPeriods">
 		<xs:sequence>
